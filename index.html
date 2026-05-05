@@ -693,16 +693,33 @@
   }
 
   // ── COMEX DATA (shared localStorage) ─────────────────────────────
-  function loadComex() {
+  var LITE_GITHUB = 'https://raw.githubusercontent.com/robertmelc/Silver-Monitor/main/comex-data.json';
+
+  function loadComex(data) {
     try {
-      var raw = localStorage.getItem('comex_data');
-      if (!raw) return;
-      var d = JSON.parse(raw);
-      var mr = document.getElementById('m-registered'); if (mr && d.registered) mr.textContent = d.registered;
-      var ms = document.getElementById('m-stress');     if (ms && d.stress)     ms.textContent = d.stress;
-      var ml = document.getElementById('m-leverage');   if (ml && d.leverage)   ml.textContent = d.leverage;
-      var mu = document.getElementById('comex-updated'); if (mu && d.updated) mu.textContent = d.updated;
+      if (!data) {
+        var raw = localStorage.getItem('comex_data');
+        if (!raw) return;
+        data = JSON.parse(raw);
+      }
+      var mr = document.getElementById('m-registered'); if (mr && data.registered) mr.textContent = data.registered;
+      var ms = document.getElementById('m-stress');     if (ms && data.stress)     ms.textContent = data.stress;
+      var ml = document.getElementById('m-leverage');   if (ml && data.leverage)   ml.textContent = data.leverage;
+      var mu = document.getElementById('comex-updated'); if (mu && data.updated) mu.textContent = data.updated;
     } catch(e) {}
+  }
+
+  async function loadComexFromGitHub() {
+    try {
+      var res = await fetch(LITE_GITHUB + '?t=' + Date.now());
+      if (!res.ok) return;
+      var data = await res.json();
+      localStorage.setItem('comex_data', JSON.stringify(data));
+      loadComex(data);
+    } catch(e) {
+      // fallback to localStorage
+      loadComex();
+    }
   }
 
   // ── ACCESS CHECK ──────────────────────────────────────────────────
@@ -728,7 +745,7 @@
     document.documentElement.setAttribute('data-theme', saved);
     document.getElementById('theme-btn').textContent = saved === 'light' ? '🌙' : '☀️';
     checkAccess();
-    loadComex();
+    loadComexFromGitHub();
   })();
 </script>
 
