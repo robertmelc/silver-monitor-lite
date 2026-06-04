@@ -368,6 +368,8 @@
     border-radius: 6px;
     overflow: hidden;
     border: 2px solid;
+    display: flex;
+    flex-direction: column;
   }
   .voucher-head {
     padding: 14px 10px;
@@ -381,7 +383,7 @@
     font-size: 14px;
     letter-spacing: 2px;
   }
-  .voucher-body { padding: 12px 10px; }
+  .voucher-body { padding: 12px 10px; flex: 1; display: flex; flex-direction: column; }
   .voucher-row {
     display: flex;
     justify-content: space-between;
@@ -401,7 +403,7 @@
     letter-spacing: 1px;
     text-decoration: none;
     border-radius: 3px;
-    margin-top: 8px;
+    margin-top: auto;
     text-transform: uppercase;
   }
 
@@ -565,63 +567,68 @@
     · <span id="comex-updated">–</span>
   </div>
 
-  <!-- VOUCHERS -->
-  <div class="section-title">XAG Vouchery · Sdílený benefit</div>
+  <!-- SUBSCRIPTION -->
+  <div class="section-title">Subscription · Copy Trading Signály</div>
   <div class="vouchers-grid">
 
-    <div class="voucher-card" style="border-color:#cd7f32;">
-      <div class="voucher-head" style="background:linear-gradient(135deg,#3d2000,#7a4010);">
-        <div class="voucher-emoji">🥉</div>
-        <div class="voucher-name" style="color:#cd7f32;">BRONZE</div>
+    <div class="voucher-card" style="border-color:#4a9eff;">
+      <div class="voucher-head" style="background:linear-gradient(135deg,#0a1628,#1a3050);">
+        <div class="voucher-emoji">🚀</div>
+        <div class="voucher-name" style="color:#4a9eff;">STARTER</div>
       </div>
       <div class="voucher-body">
-        <div style="font-family:var(--mono);font-size:9px;color:var(--dim);margin-bottom:8px;text-align:center;background:rgba(205,127,50,0.1);border-radius:3px;padding:6px;">
-          <span style="font-size:16px;color:#fff;font-family:var(--sans);font-weight:900;">2 000 Kč</span>
+        <div style="font-family:var(--mono);font-size:9px;color:var(--dim);margin-bottom:8px;text-align:center;background:rgba(74,158,255,0.1);border-radius:3px;padding:6px;">
+          <span style="font-size:18px;color:#fff;font-family:var(--sans);font-weight:900;">147 €</span>
+          <div style="font-size:9px;color:#4a9eff;margin-top:2px;">49 €/měs · 3 měsíce</div>
         </div>
-        <div class="voucher-row"><span>Benefit</span><span>min. 30%</span></div>
-        <div class="voucher-row"><span>Doba</span><span>1 rok</span></div>
-        <div class="voucher-row"><span>Jistina</span><span>vrácena</span></div>
-        <a href="https://www.xagone.eu/p/prvni-produkt/" target="_blank"
-          class="voucher-btn" style="background:linear-gradient(135deg,#7a4010,#cd7f32);color:#fff;">
-          Zakoupit ↗
+        <div class="voucher-row"><span>Přístup</span><span style="color:#4a9eff;">Lite</span></div>
+        <div class="voucher-row"><span>Signály</span><span>1–2/měs</span></div>
+        <div class="voucher-row"><span>Push notif.</span><span>✓</span></div>
+        <a href="https://robertmelc.github.io/silver-landing/" target="_blank"
+          class="voucher-btn" style="background:linear-gradient(135deg,#1a3050,#4a9eff);color:#fff;">
+          Registrovat se ↗
         </a>
       </div>
     </div>
 
-    <div class="voucher-card" style="border-color:#c0c0c0;">
-      <div class="voucher-head" style="background:linear-gradient(135deg,#1a2030,#304060);">
-        <div class="voucher-emoji">🥈</div>
-        <div class="voucher-name" style="color:#c0c0c0;">SILVER</div>
+    <div class="voucher-card" style="border-color:#00d4aa;">
+      <div class="voucher-head" style="background:linear-gradient(135deg,#001a14,#003028);">
+        <div class="voucher-emoji">📈</div>
+        <div class="voucher-name" style="color:#00d4aa;">TRADER</div>
+        <div style="display:inline-block;background:var(--accent);color:#000;font-family:var(--mono);font-size:8px;font-weight:bold;padding:2px 8px;border-radius:2px;margin-top:6px;letter-spacing:1px;">POPULAR</div>
       </div>
       <div class="voucher-body">
-        <div style="font-family:var(--mono);font-size:9px;color:var(--dim);margin-bottom:8px;text-align:center;background:rgba(192,192,192,0.1);border-radius:3px;padding:6px;">
-          <span style="font-size:16px;color:#fff;font-family:var(--sans);font-weight:900;">5 000 Kč</span>
+        <div style="font-family:var(--mono);font-size:9px;color:var(--dim);margin-bottom:8px;text-align:center;background:rgba(0,212,170,0.1);border-radius:3px;padding:6px;">
+          <span style="font-size:18px;color:#fff;font-family:var(--sans);font-weight:900;">234 €</span>
+          <div style="font-size:9px;color:#00d4aa;margin-top:2px;">39 €/měs · 6 měsíců · –20%</div>
         </div>
-        <div class="voucher-row"><span>Benefit</span><span>min. 40%</span></div>
-        <div class="voucher-row"><span>Doba</span><span>2 roky</span></div>
-        <div class="voucher-row"><span>Jistina</span><span>vrácena</span></div>
-        <a href="https://www.xagone.eu/p/druhy-produkt/" target="_blank"
-          class="voucher-btn" style="background:linear-gradient(135deg,#607080,#c0c0c0);color:#fff;">
-          Zakoupit ↗
+        <div class="voucher-row"><span>Přístup</span><span style="color:#00d4aa;">Plný monitor</span></div>
+        <div class="voucher-row"><span>Signály</span><span>1–3/měs</span></div>
+        <div class="voucher-row"><span>Push notif.</span><span>✓ Prioritní</span></div>
+        <a href="https://robertmelc.github.io/silver-landing/" target="_blank"
+          class="voucher-btn" style="background:linear-gradient(135deg,#008866,#00d4aa);color:#000;">
+          Registrovat se ↗
         </a>
       </div>
     </div>
 
     <div class="voucher-card" style="border-color:#ffd700;">
-      <div class="voucher-head" style="background:linear-gradient(135deg,#2d2000,#5a4000);">
-        <div class="voucher-emoji">🥇</div>
-        <div class="voucher-name" style="color:#ffd700;">GOLD</div>
+      <div class="voucher-head" style="background:linear-gradient(135deg,#1a1400,#302800);">
+        <div class="voucher-emoji">⭐</div>
+        <div class="voucher-name" style="color:#ffd700;">PRO</div>
+        <div style="display:inline-block;background:var(--yellow);color:#000;font-family:var(--mono);font-size:8px;font-weight:bold;padding:2px 8px;border-radius:2px;margin-top:6px;letter-spacing:1px;">BEST VALUE</div>
       </div>
       <div class="voucher-body">
         <div style="font-family:var(--mono);font-size:9px;color:var(--dim);margin-bottom:8px;text-align:center;background:rgba(255,215,0,0.1);border-radius:3px;padding:6px;">
-          <span style="font-size:16px;color:#fff;font-family:var(--sans);font-weight:900;">10 000 Kč</span>
+          <span style="font-size:18px;color:#fff;font-family:var(--sans);font-weight:900;">348 €</span>
+          <div style="font-size:9px;color:#ffd700;margin-top:2px;">29 €/měs · 12 měsíců · –41%</div>
         </div>
-        <div class="voucher-row"><span>Benefit</span><span>min. 50%</span></div>
-        <div class="voucher-row"><span>Doba</span><span>3 roky</span></div>
-        <div class="voucher-row"><span>Jistina</span><span>vrácena</span></div>
-        <a href="https://www.xagone.eu/p/treti-produkt/" target="_blank"
+        <div class="voucher-row"><span>Přístup</span><span style="color:#ffd700;">Plný monitor</span></div>
+        <div class="voucher-row"><span>Signály</span><span>1–3/měs</span></div>
+        <div class="voucher-row"><span>Copy trading</span><span>✓ Kompletní</span></div>
+        <a href="https://robertmelc.github.io/silver-landing/" target="_blank"
           class="voucher-btn" style="background:linear-gradient(135deg,#a07800,#ffd700);color:#000;">
-          Zakoupit ↗
+          Registrovat se ↗
         </a>
       </div>
     </div>
@@ -631,8 +638,7 @@
   <div style="background:rgba(240,165,0,0.05);border:1px solid rgba(240,165,0,0.15);border-radius:4px;padding:10px 14px;margin-bottom:20px;">
     <div style="font-family:var(--mono);font-size:8px;color:var(--yellow);margin-bottom:4px;">⚖️ PRÁVNÍ UPOZORNĚNÍ</div>
     <div style="font-family:var(--mono);font-size:8px;color:var(--dim);line-height:1.7;">
-      Vouchery XAG nejsou investičním nástrojem ani kolektivním investováním. Jedná se o sdílený benefit z výnosů recyklační činnosti.
-      Uvedená procenta jsou minimální garantovaná výše. Jistina je po uplynutí doby trvání vrácena v plné výši.
+      Signály Silver Monitor jsou pouze informační obsah – nejde o investiční poradenství. Každý subscriber se rozhoduje samostatně. Minulé výsledky nezaručují budoucí výnosy.
     </div>
   </div>
 
