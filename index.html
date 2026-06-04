@@ -480,6 +480,33 @@
         </div>
       </div>
       <div class="signal-reason" id="sp-reason">Načítám signál...</div>
+      <!-- Trading parameters -->
+      <div id="sp-trading" style="display:none;background:var(--surface2);border-top:1px solid var(--border);padding:10px 14px;">
+        <div style="font-family:var(--mono);font-size:8px;letter-spacing:2px;color:var(--dim);margin-bottom:8px;">📊 TRADING PARAMETRY</div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;">
+          <div style="background:var(--surface);border-radius:3px;padding:6px;border-top:2px solid var(--accent);">
+            <div style="font-family:var(--mono);font-size:7px;color:var(--dim);margin-bottom:3px;">VSTUP</div>
+            <div id="sp-entry" style="font-family:var(--mono);font-size:11px;color:var(--accent);font-weight:bold;">–</div>
+          </div>
+          <div style="background:var(--surface);border-radius:3px;padding:6px;border-top:2px solid var(--red);">
+            <div style="font-family:var(--mono);font-size:7px;color:var(--dim);margin-bottom:3px;">STOP</div>
+            <div id="sp-stop" style="font-family:var(--mono);font-size:11px;color:var(--red);font-weight:bold;">–</div>
+          </div>
+          <div style="background:var(--surface);border-radius:3px;padding:6px;border-top:2px solid var(--yellow);">
+            <div style="font-family:var(--mono);font-size:7px;color:var(--dim);margin-bottom:3px;">TARGET 1</div>
+            <div id="sp-target1" style="font-family:var(--mono);font-size:11px;color:var(--yellow);font-weight:bold;">–</div>
+          </div>
+          <div style="background:var(--surface);border-radius:3px;padding:6px;border-top:2px solid var(--accent);">
+            <div style="font-family:var(--mono);font-size:7px;color:var(--dim);margin-bottom:3px;">TARGET 2</div>
+            <div id="sp-target2" style="font-family:var(--mono);font-size:11px;color:var(--accent);font-weight:bold;">–</div>
+          </div>
+          <div style="background:var(--surface);border-radius:3px;padding:6px;border-top:2px solid var(--dim);">
+            <div style="font-family:var(--mono);font-size:7px;color:var(--dim);margin-bottom:3px;">HORIZONT</div>
+            <div id="sp-horizon" style="font-family:var(--mono);font-size:11px;color:var(--text);font-weight:bold;">–</div>
+          </div>
+        </div>
+        <div style="font-family:var(--mono);font-size:7px;color:var(--dim);margin-top:6px;">⚠️ Pouze informační účely · Není investičním doporučením</div>
+      </div>
       <div class="signal-voucher" id="sp-voucher">
         <div>
           <div style="font-family:var(--mono);font-size:9px;color:#ffd700;margin-bottom:3px;">DOPORUČENÝ VOUCHER</div>
@@ -675,6 +702,15 @@
     var el = document.getElementById('sp-action'); if (el) { el.textContent = t.label; el.style.color = t.color; }
     var de = document.getElementById('sp-date'); if (de) de.textContent = 'Platný od: ' + (d.date || '–');
     var re = document.getElementById('sp-reason'); if (re) re.textContent = d.reason || '–';
+    // Trading parameters
+    var tradingEl = document.getElementById('sp-trading');
+    var hasTrading = d.entry || d.stop || d.target1 || d.target2 || d.horizon;
+    if (tradingEl) tradingEl.style.display = hasTrading ? 'block' : 'none';
+    var eEl = document.getElementById('sp-entry');    if (eEl) eEl.textContent = d.entry   || '–';
+    var sEl = document.getElementById('sp-stop');     if (sEl) sEl.textContent = d.stop    || '–';
+    var t1El = document.getElementById('sp-target1'); if (t1El) t1El.textContent = d.target1 || '–';
+    var t2El = document.getElementById('sp-target2'); if (t2El) t2El.textContent = d.target2 || '–';
+    var hEl = document.getElementById('sp-horizon');  if (hEl) hEl.textContent = d.horizon || '–';
     var ue = document.getElementById('sp-updated'); if (ue) ue.textContent = 'Aktualizováno: ' + (d.date || '–');
     var parts = (d.ratio || '80 / 20').split('/');
     var store = parseInt(parts[0]) || 80;
