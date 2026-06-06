@@ -747,6 +747,24 @@
       var data = await res.json();
       localStorage.setItem('comex_data', JSON.stringify(data));
       loadComex(data);
+      // Load signal from same JSON if signal fields present
+      if (data.signal) {
+        var signalData = {
+          type: data.signal,
+          ratio: (data.trezor || '80') + ' / ' + (data.industry || '20'),
+          reason: data.signal_desc || '',
+          date: data.signal_date || data.updated || '',
+          entry: data.entry || '',
+          stop: data.stop || '',
+          target1: data.target1 || '',
+          target2: data.target2 || '',
+          horizon: data.horizon || '',
+          voucher: '',
+          voucherUrl: ''
+        };
+        localStorage.setItem('xag_signal', JSON.stringify(signalData));
+        renderSignal(signalData);
+      }
     } catch(e) {
       // fallback to localStorage
       loadComex();
